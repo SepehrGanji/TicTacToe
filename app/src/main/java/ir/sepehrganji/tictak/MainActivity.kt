@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             R.id.b8 -> btnid = 8
             R.id.b9 -> btnid = 9
         }
-        if(canplay){play(btnid,btn)}
+        if(canplay&&btn.isEnabled){play(btnid,btn)}
     }
     fun play(bid:Int,b:Button){
         if(CurrentPlayer == 1){
@@ -116,6 +116,7 @@ class MainActivity : AppCompatActivity() {
                 P2.add(target)
                 btn.text = "O"
                 btn.setTextColor(Color.BLUE)
+                btn.isEnabled = false
             }else{Toast.makeText(this,"Err2\n$target",Toast.LENGTH_LONG).show()}
         }
     }
