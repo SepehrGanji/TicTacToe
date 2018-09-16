@@ -55,22 +55,32 @@ class MainActivity : AppCompatActivity() {
         }
         b.isEnabled = false
         if (findwinner(P1)){
-            Toast.makeText(this,"بازیکن اول برنده شد",Toast.LENGTH_LONG).show()
-            canplay = false
+            if(isauto){
+                Toast.makeText(this,"شما برنده شدید",Toast.LENGTH_LONG).show()
+                canplay = false
+            }else{
+                Toast.makeText(this,"بازیکن اول برنده شد",Toast.LENGTH_LONG).show()
+                canplay = false
+            }
         }
         if (findwinner(P2)){
-            Toast.makeText(this,"بازیکن دوم برنده شد",Toast.LENGTH_LONG).show()
-            canplay = false
+            if(isauto){
+                Toast.makeText(this,"شما بازنده شدید",Toast.LENGTH_LONG).show()
+                canplay = false
+            }else{
+                Toast.makeText(this,"بازیکن دوم برنده شد",Toast.LENGTH_LONG).show()
+                canplay = false
+            }
         }
         if(P1.size>=5 || P2.size>=5){
             if(canplay) {
-                Toast.makeText(this, "تموم شد!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "بازی مساوی تموم شد!", Toast.LENGTH_SHORT).show()
                 canplay = false
             }
         }
     }
     fun findwinner(array:ArrayList<Int>):Boolean{
-        //row
+        //rowخع
         for(i in 1..7 step 3){
             if(array.contains(i) && array.contains(i+1) && array.contains(i+2)){return true}
         }
