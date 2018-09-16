@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#5791fe</color>
+    <color name="colorAccent">#ffb5ce</color>
+    <color name="TColor">#5791fe</color>
+</resources>
