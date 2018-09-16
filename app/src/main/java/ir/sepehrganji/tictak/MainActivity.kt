@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        P1.clear()
+        P2.clear()
         isauto = intent.getBooleanExtra("automode",false)
     }
     fun btn_Click(view:View){
@@ -95,19 +97,25 @@ class MainActivity : AppCompatActivity() {
                 7 -> btn = b7
                 8 -> btn = b8
                 9 -> btn = b9
-                else -> btn = b1
+                else -> {
+                    btn = b1
+                    Toast.makeText(this, "Err1\n$target",Toast.LENGTH_LONG).show()
+                }
             }
-            P2.add(target)
-            btn.text = "O"
-            btn.setTextColor(Color.BLUE)
+            if(btn.isEnabled){
+                P2.add(target)
+                btn.text = "O"
+                btn.setTextColor(Color.BLUE)
+            }else{Toast.makeText(this,"Err2",Toast.LENGTH_SHORT).show()}
         }
     }
     fun findtarget():Int{
         if (!P1.contains(5) && !P2.contains(5)){return 5}
         val empty = ArrayList<Int>()
-        for(i in 1..9){
-            if (!P1.contains(i) && !P2.contains(i)){
-                empty.add(i)
+        empty.clear()
+        for(a in 1..9){
+            if (!P1.contains(a) && !P2.contains(a)){
+                empty.add(a)
             }
         }
         if(empty.size==0){
@@ -115,18 +123,18 @@ class MainActivity : AppCompatActivity() {
         }else if(empty.size == 1){
             return empty[0]
         }else{
-            when {
-                P2.size == 0 -> {
+            when (P2.size){
+                0 -> {
                     return 1
                 }
-                P2.size == 1 -> {
+                1 -> {
                     for(j in 0 until empty.size){
                         P1.add(empty[j])
                         if (findwinner(P1)){
-                            P1.removeAt(P1.size-1)
+                            P1.remove(empty[j])
                             return empty[j]
                         }
-                        P1.removeAt(P1.size-1)
+                        P1.remove(empty[j])
                     }
                     if(!empty.contains(1)){return 1}
                     if(!empty.contains(7)){return 7}
@@ -134,21 +142,21 @@ class MainActivity : AppCompatActivity() {
                     if(!empty.contains(9)){return 9}
                 }
                 else -> {
-                    for(jj in 0 until empty.size){
-                        P2.add(empty[jj])
+                    for(a in 0 until empty.size){
+                        P2.add(empty[a])
                         if (findwinner(P2)){
-                            P2.removeAt(P2.size-1)
-                            return empty[jj]
+                            P2.remove(empty[a])
+                            return empty[a]
                         }
-                        P2.removeAt(P2.size-1)
+                        P2.remove(empty[a])
                     }
-                    for(ja in 0 until empty.size){
-                        P1.add(empty[ja])
+                    for(j in 0 until empty.size){
+                        P1.add(empty[j])
                         if (findwinner(P1)){
-                            P1.removeAt(P1.size-1)
-                            return empty[ja]
+                            P1.remove(empty[j])
+                            return empty[j]
                         }
-                        P1.removeAt(P1.size-1)
+                        P1.remove(empty[j])
                     }
                     if(!empty.contains(1)){return 1}
                     if(!empty.contains(7)){return 7}
