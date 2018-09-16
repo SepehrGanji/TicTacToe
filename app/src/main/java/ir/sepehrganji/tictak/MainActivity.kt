@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun findwinner(array:ArrayList<Int>):Boolean{
-        //row
+        //rowخع
         for(i in 1..7 step 3){
             if(array.contains(i) && array.contains(i+1) && array.contains(i+2)){return true}
         }
