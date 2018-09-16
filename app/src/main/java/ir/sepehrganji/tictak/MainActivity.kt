@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
                 P2.add(target)
                 btn.text = "O"
                 btn.setTextColor(Color.BLUE)
-            }else{Toast.makeText(this,"Err2",Toast.LENGTH_SHORT).show()}
+            }else{Toast.makeText(this,"Err2\n$target",Toast.LENGTH_LONG).show()}
         }
     }
     fun findtarget():Int{
@@ -158,14 +158,14 @@ class MainActivity : AppCompatActivity() {
                         }
                         P1.remove(empty[j])
                     }
-                    if(!empty.contains(1)){return 1}
-                    if(!empty.contains(7)){return 7}
-                    if(!empty.contains(3)){return 3}
-                    if(!empty.contains(9)){return 9}
-                    if(!empty.contains(8)){return 8}
-                    if(!empty.contains(6)){return 6}
-                    if(!empty.contains(4)){return 4}
-                    if(!empty.contains(2)){return 2}
+                    if(empty.contains(1)){return 1}
+                    if(empty.contains(7)){return 7}
+                    if(empty.contains(3)){return 3}
+                    if(empty.contains(9)){return 9}
+                    if(empty.contains(8)){return 8}
+                    if(empty.contains(6)){return 6}
+                    if(empty.contains(4)){return 4}
+                    if(empty.contains(2)){return 2}
                 }
             }
         }
