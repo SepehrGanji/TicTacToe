@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun findwinner(array:ArrayList<Int>):Boolean{
-        //rowخع
+        //row
         for(i in 1..7 step 3){
             if(array.contains(i) && array.contains(i+1) && array.contains(i+2)){return true}
         }
@@ -146,10 +146,10 @@ class MainActivity : AppCompatActivity() {
                         }
                         P1.remove(empty[j])
                     }
-                    if(!empty.contains(1)){return 1}
-                    if(!empty.contains(7)){return 7}
-                    if(!empty.contains(3)){return 3}
-                    if(!empty.contains(9)){return 9}
+                    if(empty.contains(1)){return 1}
+                    if(empty.contains(7)){return 7}
+                    if(empty.contains(3)){return 3}
+                    if(empty.contains(9)){return 9}
                 }
                 else -> {
                     for(a in 0 until empty.size){
