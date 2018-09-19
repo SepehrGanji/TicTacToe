@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 canplay = false
             }
         }
-        if (findwinner(P2)){
+        if (findwinner(P2) && canplay){
             if(isauto){
                 Toast.makeText(this,"شما بازنده شدید",Toast.LENGTH_LONG).show()
                 canplay = false
